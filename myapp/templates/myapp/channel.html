@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/home.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Welcome to Our {{ channel_name }} Channel</h1>
+    </div>
+        <div>
+            <div>
+
+          <label for="textbox1">ChatBox</label>
+        </div>
+
+          <!-- Change input to textarea -->
+          <textarea id="textbox1" name="textbox1" rows="10" cols="40">
+            {% for chats in chat %}
+
+              {{chats}}
+
+              {% endfor %}
+            </textarea
+          ><br /><br />
+
+
+          <label for="textbox2">Type Chat:</label>
+          <input type="text" id="textbox2" name="textbox2" /><br /><br />
+
+          <button type="submit" id="submit">Submit</button>
+        </div>
+        {{channel_name|json_script:"group-name"}}
+
+        <script src="{% static 'myapp/js/script.js' %}"></script>
+      </body>
+
+  </body>
+</html>
